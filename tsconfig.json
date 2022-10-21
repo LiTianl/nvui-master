@@ -1,9 +1,10 @@
 {
   "extends": "@vue/tsconfig/tsconfig.web.json",
-  "include": ["env.d.ts", "src/**/*", "src/**/*.vue"],
+  "include": ["env.d.ts", "src/**/*", "src/**/*.vue","nvui/**/*","src/**/*.vue"],
   "compilerOptions": {
     "baseUrl": ".",
     "strict": false,
+    "moduleResolution": "node",
     "paths": {
       "@/*": ["./src/*"]
     }

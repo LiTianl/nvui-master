@@ -1,7 +1,4 @@
-<script setup lang="ts">
-// defineOptions({
-//   name: 'Button'
-// })
+<script setup lang="ts" name="button" >
 /**
  * 接收传过来的值
  *
@@ -19,13 +16,6 @@ defineProps({
   }
 })
 </script>
-<script lang="ts">
-import { defineComponent } from 'vue'
-export default defineComponent({
-  name:'NVButton'
-})
-</script>
-
 <template>
   <button  :class="[size, type]">
     <!-- 定义插槽用于让用户自定义按钮你们的内容 -->
