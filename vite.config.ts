@@ -9,14 +9,15 @@ export default defineConfig({
   plugins: [vue()],
   resolve: {
     alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url))
+      '@': fileURLToPath(new URL('./src', import.meta.url)),
+      'pk': fileURLToPath(new URL('./packages',import.meta.url)),
     }
   },
   build: {
     outDir: 'nvui', //输出文件夹名
     lib: {
       // eslint-disable-next-line no-undef
-      entry: path.resolve(__dirname, './packages/components/nvui/index.js'), //指定组件编译入口文件
+      entry: path.resolve(__dirname, './packages/components/index.ts'), //指定组件编译入口文件
       name: 'nvui',
       fileName: 'nvui'
     }, //库编译模式配置

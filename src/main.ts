@@ -1,7 +1,7 @@
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 import App from './App.vue'
-import NVUI from '../nvui'
+import NVUI from '../packages/components'
 
 const app = createApp(App)
 
