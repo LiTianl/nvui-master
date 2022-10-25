@@ -1,0 +1,21 @@
+@charset "UTF-8";
+:root{
+  // color
+  --nv-color-default:#676666;
+  --nv-color-primary:#4587FF;
+  --nv-color-success: #22CA45;
+  --nv-color-warning: #FFBE4D;
+  --nv-color-danger: #CA6245;
+  --nv-color-info: #373737;
+
+  // padding
+  --nv-padding-default: 8px 16px;
+  --nv-padding-large: 12px 24px;
+  --nv-padding-small: 6px 12px;
+  --nv-padding-mini: 4px 8px;
+
+  // border
+  --nv-border-radius-base: 4px;
+  --nv-border-radius-small: 2px;
+  --nv-border-radius-round: 20px;
+}

@@ -10,7 +10,7 @@ export type buttonTypes =
   'text'|
   ''
 
-export type buttonSize = 'lg'|'md'|'sm'|'xs'|''
+export type buttonSize = 'large'|'default'|'small'|'mini'|'full'
 export type buttonNativeTypes = 'button'|'submit'|'reset'
 
 export const buttonProps = {

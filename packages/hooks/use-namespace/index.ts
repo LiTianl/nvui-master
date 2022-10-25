@@ -27,7 +27,7 @@ export const useNamespace = (block:string) =>{
   
   const b = (blockSuffix = '') => _be(unref(namespace), block, blockSuffix , '')
 
-  const m = (modifier?:string) => modifier? _be(unref(namespace), block,'',modifier) : ''
+  const m = (modifier?:string) =>  (modifier&&modifier!='default')? _be(unref(namespace), block,'',modifier) : ''
   
   const is: {
     (name: string, state: boolean | undefined): string

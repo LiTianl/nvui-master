@@ -1,0 +1,71 @@
+@use '../../style/minixs/function.scss' as *;
+
+@mixin isState($color) {
+  border-color: var(#{$color});
+  background-color: var(#{$color});
+  color: white;
+  &.is-plain{
+    color: var(#{$color});
+    background-color: transparent;
+  }
+  &.is-text{
+    color: var(#{$color});
+    border: none;
+    background: none;
+  }
+  &.is-round{
+    border-radius: getCssVar('border','radius-round');
+  }
+}
+
+//默认
+.nv-button{
+  padding: 8px 16px;
+  box-sizing: border-box;
+  border-radius: getCssVar('border','radius-base');
+  border: 1px solid;
+  @include isState(getCssVarName('color','default'))
+}
+
+//尺寸
+.nv-button--large{
+  padding: getCssVar('padding','large');
+}
+.nv-button--small{
+  padding: getCssVar('padding','small');
+}
+.nv-button--mini{
+  padding: getCssVar('padding','mini');
+}
+
+.nv-button--full{
+  width: 100%;
+  text-align: center;
+}
+
+
+//状态
+.nv-button--primary{
+  @include isState(getCssVarName('color','primary'))
+}
+.nv-button--success{
+  @include isState(getCssVarName('color','success'))
+}
+.nv-button--warning{
+  @include isState(getCssVarName('color','warning'))
+}
+.nv-button--info{
+  @include isState(getCssVarName('color','info'))
+}
+.nv-button--danger{
+  @include isState(getCssVarName('color','danger'));
+}
+
+
+
+
+
+
+
+
+

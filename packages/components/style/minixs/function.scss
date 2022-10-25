@@ -1,0 +1,27 @@
+@use 'config.scss';
+// 组合变量名称
+
+// joinVarName(('button','primary')) => '--nv-button-primary'
+@function joinVarName($list) {
+  $name: '--' + config.$namespace;
+  @each $item in $list {
+    @if $item != '' {
+      $name: $name + '-' + $item;
+    }
+  }
+  @return $name;
+}
+
+// getCssVarName('button', 'text-color') => '--el-button-text-color'
+@function getCssVarName($args...) {
+  @return joinVarName($args);
+}
+
+// getCssVar('button', 'text-color') => var(--el-button-text-color)
+@function getCssVar($args...) {
+  @return var(#{joinVarName($args)});
+}
+
+
+
+

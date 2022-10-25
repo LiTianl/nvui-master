@@ -1,7 +1,9 @@
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 import App from './App.vue'
+
 import NVUI from '../packages/components'
+import 'pk/components/style/index.scss'
 
 const app = createApp(App)
 

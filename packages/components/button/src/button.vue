@@ -48,3 +48,6 @@ export default defineComponent({
     <slot></slot>
   </button>
 </template>
+<style scoped lang='scss'>
+@import '../style/index.scss'
+</style>
