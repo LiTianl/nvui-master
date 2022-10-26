@@ -1,65 +1,167 @@
 @use '../../style/minixs/function.scss' as *;
 
-@mixin isState($color) {
+@mixin isState($color,$hover,$active) {
   border-color: var(#{$color});
   background-color: var(#{$color});
   color: white;
-  &.is-plain{
-    color: var(#{$color});
-    background-color: transparent;
+  &:hover,&:focus{
+    border-color: var(#{$color + $hover});
+    background-color:var(#{$color + $hover});
+    color: white;
   }
-  &.is-text{
-    color: var(#{$color});
-    border: none;
-    background: none;
+  &:active{
+    border-color: var(#{$color + $active});
+    background-color:var(#{$color + $active});
   }
-  &.is-round{
-    border-radius: getCssVar('border','radius-round');
+  
+  $state_group:(plain,text,round,disabled);
+  @each $item in $state_group {
+    &.is-#{$item}{
+      // @include action($item);
+      @if $item == 'plain' {
+        color: var(#{$color});
+        background: transparent !important;
+        &:hover,&:focus{
+          color: var(#{$color + $hover});
+        }
+        &:active{
+          color: var(#{$color + $active});
+        }
+      }@else if $item == 'text' {
+        
+      }@else if $item == 'round' {
+        border-radius: getCssVar('border','radius-round');
+      }@else if $item == 'disabled' {
+        cursor: not-allowed;
+        &:hover,&:focus{
+          border-color: var(#{$color});
+          background-color:var(#{$color});
+          color: white;
+        }
+      }
+    }
   }
+}
+
+@mixin animation($color,$types,$hover){
+  $item_group:(before,after);
+  @each $item in $item_group {
+    &::#{$item}{
+      content: "";
+      position: absolute;
+    }
+    &:hover::#{$item}{
+      width: 10%;
+    }
+  }
+
+  //边框
+  // &::before{
+  //   content: "";
+  //   position: absolute;
+  //   top: 0;
+  //   left: 0;
+  //   width: 100%;
+  //   height: 100%;
+    // box-sizing: border-box;
+    // border-radius: getCssVar('border','radius-base');
+    // border: 1px solid var(#{$color});
+    // background-color: var(#{$bcolor});
+  // }
+  //背景
+  // &::after{
+  //   content: "";
+  //   position: absolute;
+  //   top: 0;
+  //   left: 0;
+  //   height: 100%;
+  //   width: 10%;
+  //   background:var(#{$color + $hover});
+  //   border-collapse: collapse;
+  //   transition: width .5s;
+  //   transition-delay: .2s;
+  // }
 }
 
 //默认
 .nv-button{
   padding: 8px 16px;
+  position: relative;
+  white-space: nowrap;
+  cursor: pointer;
+  text-align: center;
+  transition: .5s;
   box-sizing: border-box;
   border-radius: getCssVar('border','radius-base');
-  border: 1px solid;
-  @include isState(getCssVarName('color','default'))
+  border: 1px solid getCssVar('color','default');
+  background: transparent;
+  color: getCssVar('color','default');
+  >span{
+    position: relative;
+    z-index: 2;
+    display: inline-flex;
+    align-items: center;
+  }
+  &:hover,&:focus{
+    border-color:getCssVar('color','primary-light-9');
+    color: getCssVar('color','primary-light-9');
+  }
 }
 
 //尺寸
-.nv-button--large{
-  padding: getCssVar('padding','large');
-}
-.nv-button--small{
-  padding: getCssVar('padding','small');
-}
-.nv-button--mini{
-  padding: getCssVar('padding','mini');
+
+$size_group:(large,small,mini,full);
+@each $item in $size_group {
+  @if $item != 'full'{
+    .nv-button--#{$item}{
+      padding:getCssVar('padding',$item);
+    }
+  }@else{
+    .nv-button--#{$item}{
+      width: 100%;
+      text-align: center;
+    }
+  }
 }
 
-.nv-button--full{
-  width: 100%;
-  text-align: center;
-}
+// .nv-button--large{
+//   padding: getCssVar('padding','large');
+// }
+// .nv-button--small{
+//   padding: getCssVar('padding','small');
+// }
+// .nv-button--mini{
+//   padding: getCssVar('padding','mini');
+// }
+// .nv-button--full{
+//   width: 100%;
+//   text-align: center;
+// }
 
 
 //状态
-.nv-button--primary{
-  @include isState(getCssVarName('color','primary'))
+$type_group:(primary,success,warning,info,danger);
+@each $item in $type_group{
+  .nv-button--#{$item}{
+    @include isState(getCssVarName('color',$item),'-light-7','-light-9')
+  }
 }
-.nv-button--success{
-  @include isState(getCssVarName('color','success'))
-}
-.nv-button--warning{
-  @include isState(getCssVarName('color','warning'))
-}
-.nv-button--info{
-  @include isState(getCssVarName('color','info'))
-}
-.nv-button--danger{
-  @include isState(getCssVarName('color','danger'));
-}
+
+// .nv-button--primary{
+//   @include isState(getCssVarName('color','primary'),'-light-7','-light-9');
+// }
+// .nv-button--success{
+//   @include isState(getCssVarName('color','success'),'-light-7','-light-9');
+// }
+// .nv-button--warning{
+//   @include isState(getCssVarName('color','warning'),'-light-7','-light-9');
+// }
+// .nv-button--info{
+//   @include isState(getCssVarName('color','info'),'-light-7','-light-9');
+// }
+// .nv-button--danger{
+//   @include isState(getCssVarName('color','danger'),'-light-7','-light-9');
+// }
 
 
 

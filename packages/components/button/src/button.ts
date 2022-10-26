@@ -43,6 +43,7 @@ export const buttonProps = {
   autofocus: Boolean,
   round: Boolean,
   circle: Boolean,
+  animation: Boolean,
   color: String,
   dark: Boolean,
   autoInsertSpace: {

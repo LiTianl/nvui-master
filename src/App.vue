@@ -9,12 +9,12 @@
   </div>
   <div>
     <NVButton type="default" size="default">default</NVButton>
-    <NVButton type="primary">primary</NVButton>
-    <NVButton type="success">success</NVButton>
-    <NVButton type="warning" text>warning</NVButton>
-    <NVButton type="info" round >info</NVButton>
-    <NVButton type="danger" plain line>danger</NVButton>
-    <NVButton text >text</NVButton>
+    <NVButton type="primary" disabled>primary</NVButton>
+    <NVButton type="success" animation>success</NVButton>
+    <NVButton type="warning" round plain>warning</NVButton>
+    <NVButton type="info">info</NVButton>
+    <NVButton type="danger" round>danger</NVButton>
+    <!-- <NVButton text>text</NVButton> -->
   </div>
 </template>
 <style scoped lang="scss">

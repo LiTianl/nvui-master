@@ -37,7 +37,8 @@ export default defineComponent({
       ns.is('text',text),
       ns.is('round',round),
       ns.is('circle',circle),
-      ns.is('has-bg',bg)
+      ns.is('has-bg',bg),
+      ns.is('animation',animation)
     ]"
     :aria-disabled="disabled || loading"
     :disabled="disabled || loading"
@@ -45,7 +46,9 @@ export default defineComponent({
     @click="handleClick"
     >
     <!-- 定义插槽用于让用户自定义按钮你们的内容 -->
-    <slot></slot>
+    <span>
+      <slot></slot>
+    </span>
   </button>
 </template>
 <style scoped lang='scss'>
