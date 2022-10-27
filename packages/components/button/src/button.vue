@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from "vue"
 import {buttonProps,buttonEmits} from './button'
-import { useNamespace } from 'pk/hooks/use-namespace'
+import { useNamespace } from '../../../hooks/use-namespace'
 
 const props = defineProps(buttonProps)
 const emit = defineEmits(buttonEmits)

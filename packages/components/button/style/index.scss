@@ -14,7 +14,7 @@
     background-color:var(#{$color + $active});
   }
   
-  $state_group:(plain,text,round,disabled);
+  $state_group:(plain,text,round,disabled,loading);
   @each $item in $state_group {
     &.is-#{$item}{
       // @include action($item);
@@ -31,8 +31,11 @@
         
       }@else if $item == 'round' {
         border-radius: getCssVar('border','radius-round');
-      }@else if $item == 'disabled' {
-        cursor: not-allowed;
+      }@else if $item == 'disabled' or $item == 'loading' {
+        @if $item == 'disabled' {cursor: not-allowed;}
+        @if $item == 'loading' {pointer-events: none;}
+        opacity: .5;
+        filter: alpha(opacity=50);
         &:hover,&:focus{
           border-color: var(#{$color});
           background-color:var(#{$color});
@@ -101,6 +104,7 @@
     z-index: 2;
     display: inline-flex;
     align-items: center;
+    font-size: getCssVar('font','size-default');
   }
   &:hover,&:focus{
     border-color:getCssVar('color','primary-light-9');
@@ -124,21 +128,6 @@ $size_group:(large,small,mini,full);
   }
 }
 
-// .nv-button--large{
-//   padding: getCssVar('padding','large');
-// }
-// .nv-button--small{
-//   padding: getCssVar('padding','small');
-// }
-// .nv-button--mini{
-//   padding: getCssVar('padding','mini');
-// }
-// .nv-button--full{
-//   width: 100%;
-//   text-align: center;
-// }
-
-
 //状态
 $type_group:(primary,success,warning,info,danger);
 @each $item in $type_group{
@@ -146,23 +135,6 @@ $type_group:(primary,success,warning,info,danger);
     @include isState(getCssVarName('color',$item),'-light-7','-light-9')
   }
 }
-
-// .nv-button--primary{
-//   @include isState(getCssVarName('color','primary'),'-light-7','-light-9');
-// }
-// .nv-button--success{
-//   @include isState(getCssVarName('color','success'),'-light-7','-light-9');
-// }
-// .nv-button--warning{
-//   @include isState(getCssVarName('color','warning'),'-light-7','-light-9');
-// }
-// .nv-button--info{
-//   @include isState(getCssVarName('color','info'),'-light-7','-light-9');
-// }
-// .nv-button--danger{
-//   @include isState(getCssVarName('color','danger'),'-light-7','-light-9');
-// }
-
 
 
 
