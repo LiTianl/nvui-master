@@ -6,11 +6,11 @@ import path from 'path'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [vue({include: [/\.vue$/, /\.md$/]})],
+  plugins: [vue({ include: [/\.vue$/, /\.md$/] })],
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),
-      'pk': fileURLToPath(new URL('./packages',import.meta.url)),
+      pk: fileURLToPath(new URL('./packages', import.meta.url))
     }
   },
   build: {
