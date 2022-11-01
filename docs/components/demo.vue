@@ -1,13 +1,15 @@
 <script setup lang="ts">
 import Example from './demo/example.vue'
 import SourceCode from './demo/source-code.vue'
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
 const props = defineProps<{
   source: string
   path: string
   rawSource: string
   description?: string
 }>()
+
+const showType = ref(false)
 
 // 解码
 const decodedDescription = computed(() =>
@@ -22,12 +24,15 @@ const decodedDescription = computed(() =>
         <Example :file="path" />
       </div>
       <div class="container-tool-btns">
-        <div>copy</div>
-        <div>show</div>
+        <nv-icon icon-class="copy"></nv-icon>
+        <nv-icon @click="showType = !showType" icon-class="code"></nv-icon>
       </div>
-      <div class="container-code">
+      <div v-show="showType" class="container-code">
         <SourceCode :source="source"></SourceCode>
-        <div class="container-tool-close">隐藏代码</div>
+        <div @click="showType = false" class="container-tool-close">
+          <nv-icon icon-class="top"></nv-icon>
+          <span>隐藏代码</span>
+        </div>
       </div>
     </div>
   </ClientOnly>
@@ -40,20 +45,26 @@ const decodedDescription = computed(() =>
   .container-tool-btns {
     display: flex;
     justify-content: end;
+    align-items: center;
     padding: 0 5px;
     height: 2.5rem;
     line-height: 2.5;
     border-top: 1px solid;
-    & > div {
-      padding: 0 5px;
+    & > .svg-icon {
+      margin: 0 5px;
     }
   }
   .container-code {
+    overflow: hidden;
     .container-tool-close {
       text-align: center;
       border-top: 1px solid;
       height: 3rem;
       line-height: 3;
+      cursor: pointer;
+      & > span {
+        padding-left: 8px;
+      }
     }
   }
 }

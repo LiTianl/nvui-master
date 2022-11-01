@@ -1,0 +1,37 @@
+{
+  "id": "3742128",
+  "name": "no name",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "577394",
+      "name": "向上1",
+      "font_class": "top",
+      "unicode": "e76d",
+      "unicode_decimal": 59245
+    },
+    {
+      "icon_id": "577398",
+      "name": "向下1",
+      "font_class": "button",
+      "unicode": "e771",
+      "unicode_decimal": 59249
+    },
+    {
+      "icon_id": "11981432",
+      "name": "code",
+      "font_class": "code",
+      "unicode": "e941",
+      "unicode_decimal": 59713
+    },
+    {
+      "icon_id": "11981529",
+      "name": "copy",
+      "font_class": "copy",
+      "unicode": "e94c",
+      "unicode_decimal": 59724
+    }
+  ]
+}

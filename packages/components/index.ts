@@ -1,7 +1,8 @@
 import button from './button'
+import icon from './icon'
 import type { App, Plugin } from 'vue'
 
-const component = [button]
+const component = [button, icon]
 
 const NVUI = {
   install: (app: App) => {
@@ -11,6 +12,6 @@ const NVUI = {
   }
 }
 
-export { button }
+export { button, icon }
 
 export default NVUI

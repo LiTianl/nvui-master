@@ -6,9 +6,7 @@
 :::
 
 
-```vue
-<template>
-  <NVButton type="default" size="default">default</NVButton>
-  <NVButton type="primary" disabled>primary</NVButton>
-</template>
+``` html
+   <h1>Button</h1>
 ```
+
