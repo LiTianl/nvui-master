@@ -29,14 +29,14 @@ export default defineComponent({
       ns.b(),
       ns.m(type),
       ns.m(size),
+      ns.m(animation),
       ns.is('disabled', disabled),
       ns.is('loading', loading),
       ns.is('plain', plain),
       ns.is('text', text),
       ns.is('round', round),
       ns.is('circle', circle),
-      ns.is('has-bg', bg),
-      ns.is('animation', animation)
+      ns.is('has-bg', bg)
     ]"
     :aria-disabled="disabled || loading"
     :disabled="disabled || loading"
@@ -44,9 +44,12 @@ export default defineComponent({
     @click="handleClick"
   >
     <!-- 定义插槽用于让用户自定义按钮你们的内容 -->
-    <span>
+    <div v-if="icon || $slots.icon" class="icon">
+      <nv-icon :icon-class="icon"></nv-icon>
+    </div>
+    <div class="container">
       <slot></slot>
-    </span>
+    </div>
   </button>
 </template>
 <style scoped lang="scss">

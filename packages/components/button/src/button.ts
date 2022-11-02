@@ -1,26 +1,31 @@
 import type { ExtractPropTypes, PropType } from 'vue'
 
-export type buttonTypes = 
-  'default'|
-  'primary'|
-  'success'|
-  'warning'|
-  'info'|
-  'danger'|
-  'text'|
-  ''
+export type buttonTypes =
+  | 'default'
+  | 'primary'
+  | 'success'
+  | 'warning'
+  | 'info'
+  | 'danger'
+  | 'text'
+  | ''
 
-export type buttonSize = 'large'|'default'|'small'|'mini'|'full'
-export type buttonNativeTypes = 'button'|'submit'|'reset'
+export type buttonAnimation = 'l_slip' | 'r_slip' | 'l_open' | 'r_open'
+export type buttonSize = 'large' | 'default' | 'small' | 'mini' | 'full'
+export type buttonNativeTypes = 'button' | 'submit' | 'reset'
 
 export const buttonProps = {
   size: {
     type: String as PropType<buttonSize>,
-    default:''
+    default: ''
   },
   disabled: Boolean,
   type: {
     type: String as PropType<buttonTypes>,
+    default: ''
+  },
+  animation: {
+    type: String as PropType<buttonAnimation>,
     default: ''
   },
   icon: {
@@ -43,7 +48,6 @@ export const buttonProps = {
   autofocus: Boolean,
   round: Boolean,
   circle: Boolean,
-  animation: Boolean,
   color: String,
   dark: Boolean,
   autoInsertSpace: {
@@ -53,13 +57,11 @@ export const buttonProps = {
 } as const
 
 export const buttonEmits = {
-  click: (evt: MouseEvent) => evt instanceof MouseEvent,
+  click: (evt: MouseEvent) => evt instanceof MouseEvent
 }
 
-export type ButtonProps = ExtractPropTypes<typeof buttonProps>;
+export type ButtonProps = ExtractPropTypes<typeof buttonProps>
 export type ButtonType = ButtonProps['type']
 export type ButtonNativeType = ButtonProps['nativeType']
 
 export type ButtonEmits = typeof buttonEmits
-
-

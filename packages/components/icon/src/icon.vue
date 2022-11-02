@@ -23,7 +23,7 @@ export default defineComponent({
 })
 </script>
 <template>
-  <svg :class="svgClass" aria-hidden="true">
+  <svg :class="svgClass" aria-hidden="true" v-bind="$attrs">
     <use :xlink:href="iconName" />
   </svg>
 </template>

@@ -1,4 +1,4 @@
-import {unref} from 'vue'
+import { unref } from 'vue'
 
 export const defaultNamespace = 'nv' //默认命名前缀
 
@@ -6,11 +6,11 @@ const statePrefix = 'is-' // 默认状态前缀
 
 // 类名生成
 const _be = (
-  namespace:string, // 前缀名
-  block:string, // 块名
-  blockSuffix:string, //块后缀
-  modifier:string // 修饰
-) =>{
+  namespace: string, // 前缀名
+  block: string, // 块名
+  blockSuffix: string, //块后缀
+  modifier: string // 修饰
+) => {
   let cls = `${namespace}-${block}`
   if (blockSuffix) {
     cls += `-${blockSuffix}`
@@ -21,14 +21,16 @@ const _be = (
   return cls
 }
 
-
-export const useNamespace = (block:string) =>{
+export const useNamespace = (block: string) => {
   const namespace = defaultNamespace
-  
-  const b = (blockSuffix = '') => _be(unref(namespace), block, blockSuffix , '')
 
-  const m = (modifier?:string) =>  (modifier&&modifier!='default')? _be(unref(namespace), block,'',modifier) : ''
-  
+  const b = (blockSuffix = '') => _be(unref(namespace), block, blockSuffix, '')
+
+  const m = (modifier?: string) =>
+    modifier && modifier !== 'default'
+      ? _be(unref(namespace), block, '', modifier)
+      : ''
+
   const is: {
     (name: string, state: boolean | undefined): string
     (name: string): string
@@ -46,5 +48,3 @@ export const useNamespace = (block:string) =>{
 }
 
 export type UseNamespaceReturn = ReturnType<typeof useNamespace>
-
-

@@ -27,11 +27,14 @@
         &:active{
           color: var(#{$color + $active});
         }
-      }@else if $item == 'text' {
+      }
+      @else if $item == 'text' {
         
-      }@else if $item == 'round' {
+      }
+      @else if $item == 'round' {
         border-radius: getCssVar('border','radius-round');
-      }@else if $item == 'disabled' or $item == 'loading' {
+      }
+      @else if $item == 'disabled' or $item == 'loading' {
         @if $item == 'disabled' {cursor: not-allowed;}
         @if $item == 'loading' {pointer-events: none;}
         opacity: .5;
@@ -46,69 +49,106 @@
   }
 }
 
-@mixin animation($color,$types,$hover){
-  $item_group:(before,after);
-  @each $item in $item_group {
-    &::#{$item}{
-      content: "";
-      position: absolute;
+@mixin animation($types){
+  @if $types == 'l_slip'{
+    >.icon{
+      position:absolute;
+      margin: 0;
+      left: -60%;
+      transition: left 0.3s
     }
-    &:hover::#{$item}{
-      width: 10%;
+    >.container{
+      transition: color .2s
+    }
+    &:hover{
+      >.icon{
+        left: 0;
+      }
+      >.container{
+        color: transparent;
+      }
     }
   }
+  @if $types == 'r_slip'{
+    >.icon{
+      position:absolute;
+      left: 60%;
+      transition: left .3s;
+    }
+    >.container{
+      transition: color .2s
+    }
+    &:hover{
+      >.icon{
+        left: 0;
+      }
+      >.container{
+        color: transparent;
+      }
+    }
+  }
+  @if $types == 'l_open'{
+    >.container{
+      overflow: hidden;
+    }
+    &:hover{
+      width: fit-content;
+      >.container{
+        width: 100%;
+        transition-delay: .3s;
+      }
+      >.icon{
+        margin-right: 5px;
+      }
+    }
+  }
+  @if $types == 'r_open'{
 
-  //边框
-  // &::before{
-  //   content: "";
-  //   position: absolute;
-  //   top: 0;
-  //   left: 0;
-  //   width: 100%;
-  //   height: 100%;
-    // box-sizing: border-box;
-    // border-radius: getCssVar('border','radius-base');
-    // border: 1px solid var(#{$color});
-    // background-color: var(#{$bcolor});
-  // }
-  //背景
-  // &::after{
-  //   content: "";
-  //   position: absolute;
-  //   top: 0;
-  //   left: 0;
-  //   height: 100%;
-  //   width: 10%;
-  //   background:var(#{$color + $hover});
-  //   border-collapse: collapse;
-  //   transition: width .5s;
-  //   transition-delay: .2s;
-  // }
+  }
 }
+
 
 //默认
 .nv-button{
-  padding: 8px 16px;
   position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  width: fit-content;
+  overflow: hidden;
   white-space: nowrap;
   cursor: pointer;
   text-align: center;
-  transition: .5s;
   box-sizing: border-box;
   border-radius: getCssVar('border','radius-base');
   border: 1px solid getCssVar('color','default');
   background: transparent;
   color: getCssVar('color','default');
-  >span{
+  padding: 8px 16px;
+  >.container{
     position: relative;
     z-index: 2;
-    display: inline-flex;
     align-items: center;
     font-size: getCssVar('font','size-default');
+  }
+  >.icon{
+    display: inline-flex;
+    justify-content:center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    margin-right: 5px;
   }
   &:hover,&:focus{
     border-color:getCssVar('color','primary-light-9');
     color: getCssVar('color','primary-light-9');
+  }
+  &.is-circle{
+    border-radius: getCssVar('border','radius-circle');
+    padding: 8px;
+    >.icon{
+      margin: 0;
+    }
   }
 }
 
@@ -118,7 +158,20 @@ $size_group:(large,small,mini,full);
 @each $item in $size_group {
   @if $item != 'full'{
     .nv-button--#{$item}{
-      padding:getCssVar('padding',$item);
+        padding:getCssVar('padding',$item);
+        &.is-circle{
+          @if $item == 'large' {
+            padding: 12px;
+          }@else if $item == 'small'{
+            padding: 6px;
+          }@else if $item == 'mini'{
+            padding: 4px;
+          }
+          border-radius: getCssVar('border','radius-circle');
+          >.icon{
+            margin: 0;
+          }
+        }
     }
   }@else{
     .nv-button--#{$item}{
@@ -133,6 +186,15 @@ $type_group:(primary,success,warning,info,danger);
 @each $item in $type_group{
   .nv-button--#{$item}{
     @include isState(getCssVarName('color',$item),'-light-7','-light-9')
+    
+  }
+}
+
+// 动画
+$animation_group:(l_slip,r_slip,l_open,r_open);
+@each $item in $animation_group {
+  .nv-button--#{$item} {
+    @include animation($item)
   }
 }
 
