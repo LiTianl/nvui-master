@@ -42,6 +42,7 @@ const decodedDescription = computed(() =>
   border: 1px solid;
   border-radius: 6px;
   box-sizing: border-box;
+  margin-bottom: 30px;
   .container-tool-btns {
     display: flex;
     justify-content: end;

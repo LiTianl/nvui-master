@@ -1,6 +1,6 @@
 import NVUI from '../../../packages/components'
 import '../../../packages/components/style/index.scss'
-import Theme from 'vitepress/dist/client/theme-default/index'
+import Theme from 'vitepress/theme'
 import './code.scss'
 import demo from '../../components/demo.vue'
 

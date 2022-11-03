@@ -1,12 +1,19 @@
-# demoblock
-使用 `lay-icon` 标签, 创建图标组件
+# Button 按钮
 
-:::demo Use `type`, `plain`, `round` and `circle` to define Button's style.
+常规的操作按钮
+
+## 基础用法
+:::demo 使用 `type`, `plain`, `round` 和 `circle` 定义按钮样式.
   button/basic
 :::
 
+## 禁用状态
+使用 `disabled` 属性来定义按钮是否被禁用.
+:::demo 
+  button/disabled
+:::
 
-``` html
-   <h1>Button</h1>
-```
-
+<!-- # 图标按钮
+使用 `icon` 属性来为按钮添加图标。
+:::demo
+::: -->

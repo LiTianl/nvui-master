@@ -43,6 +43,9 @@
           border-color: var(#{$color});
           background-color:var(#{$color});
           color: white;
+          &.is-plain{
+            color: var(#{$color});
+          }
         }
       }
     }
@@ -125,6 +128,9 @@
   background: transparent;
   color: getCssVar('color','default');
   padding: 8px 16px;
+  &+.nv-button{
+    margin-left: 8px;
+  }
   >.container{
     position: relative;
     z-index: 2;
@@ -143,12 +149,29 @@
     border-color:getCssVar('color','primary-light-9');
     color: getCssVar('color','primary-light-9');
   }
+  &.is-disabled,&.is-loading{
+    opacity: .5;
+    filter: alpha(opacity=50);
+    &:hover,&:focus{
+      border-color: getCssVar('color','default');
+      color: getCssVar('color','default');
+    }
+  }
+  &.is-disabled{
+    cursor: not-allowed;
+  }
+  &.is-loading{
+    pointer-events: none;
+  }
   &.is-circle{
     border-radius: getCssVar('border','radius-circle');
     padding: 8px;
     >.icon{
       margin: 0;
     }
+  }
+  &.is-round{
+    border-radius: getCssVar('border','radius-round');
   }
 }
 

@@ -11,10 +11,9 @@ const config = {
   head,
   markdown,
   themeConfig: {
-    smoothscroll: true,
+    smoothScroll: true,
     nav,
-    sidebar,
-    demoblock:lang
+    sidebar
   }
 }
 
