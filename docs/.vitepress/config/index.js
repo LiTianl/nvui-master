@@ -11,6 +11,8 @@ const config = {
   head,
   markdown,
   themeConfig: {
+    search: true,
+    searchMaxSuggestions: 10,
     smoothScroll: true,
     nav,
     sidebar

@@ -12,5 +12,13 @@ export default {
         {text:'按钮', link:'/components/button/'}
       ]
     }
+  ],
+  '/nodes/':[
+    {
+      text:'开始',
+      items:[
+        {text:'快速上手',link:'/nodes/'}
+      ]
+    }
   ]
 }

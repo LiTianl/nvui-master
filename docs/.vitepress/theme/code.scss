@@ -95,6 +95,9 @@ div[class*='language-'] {
   border-radius: 0 !important;
   background-color: var(--code-bg-color);
   overflow-x: auto;
+  >.lang{
+    display: none !important;
+  }
 }
 
 li > div[class*='language-'] {
