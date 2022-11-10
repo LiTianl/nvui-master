@@ -19,6 +19,12 @@ export default {
       items:[
         {text:'快速上手',link:'/nodes/'}
       ]
+    },{
+      text: 'vue3',
+      items:[
+        {text:'前言',link:'/nodes/vue3/'},
+        {text:'组件',link:'/nodes/vue3/components'}
+      ]
     }
   ]
 }

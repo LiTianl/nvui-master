@@ -1,0 +1,53 @@
+@use '../../style/minixs/function.scss' as *;
+
+
+@mixin shadow {
+  &.nv-card--always{
+    box-shadow: 1px 1px 8px 0px getCssVar('color','border-light-9');
+  }
+  &.nv-card--hover:hover{
+    box-shadow: 1px 1px 8px 0px getCssVar('color','border-light-9');
+  }
+}
+
+@mixin  hide {
+  &{
+    transition: box-shadow .3s;
+    transition-delay: .1s;
+  }
+  &>.hide{
+    position: absolute;
+    left: calc(20px - 5px);
+    top: 95%;
+    border-radius: calc(2 * getCssVar('border','radius-base'));
+    background-color: getCssVar('color','border-light-9');
+    padding:10px 5px;
+    width: calc(100% - 40px);
+    max-height: calc(100% - 60px);
+    height: calc(100% - 60px);
+    overflow: hidden;
+    transition: top .5s ;
+    transition-delay: 0 ;
+  }
+  &:hover>.hide{
+    top: 20px;
+  }
+}
+
+.nv-card{
+  position: relative;
+  overflow: hidden;
+  border: 1px solid getCssVar('color','border-light-9');
+  width: fit-content;
+  padding: 20px;
+  border-radius: calc(2 * getCssVar('border','radius-base'));
+  box-sizing: border-box;
+  @include shadow;
+  @include hide;
+}
+
+
+
+// .nv-card:hover{
+//   box-shadow: 1px 1px 8px 0px getCssVar('color','border-light-9');
+// }
