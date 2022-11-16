@@ -37,7 +37,11 @@ const decodedDescription = computed(() =>
     </div>
   </ClientOnly>
 </template>
+
 <style scoped lang="scss">
+div[class*='language-'] {
+  border-radius: 0 !important;
+}
 .container {
   border: 1px solid;
   border-radius: 6px;

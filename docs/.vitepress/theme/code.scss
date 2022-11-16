@@ -92,7 +92,7 @@ code .token.inserted {
 div[class*='language-'] {
   position: relative;
   margin: 0 !important;
-  border-radius: 0 !important;
+  // border-radius: 0 !important;
   background-color: var(--code-bg-color);
   overflow-x: auto;
   >.lang{
@@ -132,13 +132,13 @@ li > div[class*='language-'] {
   position: relative;
   z-index: 1;
   margin: 0;
-  padding: 0.25rem;
+  padding: 0.25rem !important;
   background: transparent;
   overflow-x: auto;
 }
 
 [class*='language-'] code {
-  padding: 0;
+  padding: 0 !important;
   line-height: var(--code-line-height);
   font-size: var(--code-font-size);
   color: var(--code-text-color);

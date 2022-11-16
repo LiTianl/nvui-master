@@ -20,10 +20,10 @@ export default {
         {text:'快速上手',link:'/nodes/'}
       ]
     },{
-      text: 'vue3',
+      text: 'vue',
       items:[
-        {text:'前言',link:'/nodes/vue3/'},
-        {text:'组件',link:'/nodes/vue3/components'}
+        {text:'初始化',link:'/nodes/vue/'},
+        {text:'组件',link:'/nodes/vue/components'}
       ]
     }
   ]
