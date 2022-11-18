@@ -17,7 +17,7 @@ export default {
     {
       text:'开始',
       items:[
-        {text:'快速上手',link:'/nodes/'}
+        {text:'简介',link:'/nodes/'}
       ]
     },{
       text: 'vue',
