@@ -21,28 +21,37 @@
  
 :::
   ``` js
-    let data  = {}
-    Object.defineProperty(data,'',{
-      get(){
-
-      },
-      set(){
-
-      }
+    let data  = {
+      name:'xiaoli',
+      age:18
+    }
+    let _data = {}
+    Object.keys(data).forEach((key)=>{
+      Object.defineProperty(_data, key,{
+        enumerable:true,  //可枚举
+        configurable:true, // 可配置
+        get(){
+          return data[key]
+        },
+        set(val){
+          if(val === data[key]) return
+          data[key] = val
+        }
+      })
     })
   ```
 
-
   ## vue3.x
-
   :::tip
   * 通过 `Proxy` 进行代理，拦截对象中的任意属性变化操作（13种），包括属性值的读写，添加和删除等。
   * 通过 `Reflect`，动态对被代理的对象的相应属性进行特定的操作
   :::
-  ``` js
-    let data = {name:'zhang',age:0}
 
-    const p = new Proxy(data,{
+  ``` js
+    let data = {name:'zhang',age:18}
+
+    const _data = new Proxy(data,{
+      // target 表示代理的目标对象
       get(target,propName){
         console.log(`读取了${propName}`)
         // return target[propName]
@@ -65,7 +74,17 @@
   ### vue2.x
   #### 缺点
   * 新增，删除属性，无法更新视图。
-  * 直接通过下标修改数组，也无法更新视图
+  * 直接通过下标修改数组，也无法更新视图。
+  * 对象过多会损耗效率
   #### 优点
+  * 能够支持绝大多数浏览器版本（兼容ES5）
+
+  ### vue3.x
+  #### 缺点
+  * 基于ES6的proxy语法，对低版本的浏览器不支持
+  #### 优点
+  * 速度快，只有get数据时才会添加响应式，不用初始化深层次递归。
+  * 可以检测到代理对象的动态添加和删除。
+  * 可以检测到数组下标和length属性的改变
   
 

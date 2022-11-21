@@ -22,7 +22,8 @@ export default {
     },{
       text: 'vue',
       items:[
-        {text:'初始化',link:'/nodes/vue/'},
+        {text:'响应式',link:'/nodes/vue/'},
+        {text:'生命周期',link:'/nodes/vue/lifecycle'},
         {text:'组件',link:'/nodes/vue/components'}
       ]
     }
