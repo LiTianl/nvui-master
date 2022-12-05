@@ -1,4 +1,14 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { ref, onBeforeUnmount, onUnmounted } from 'vue'
+const value = ref('1234')
+onBeforeUnmount(() => {
+  console.log('beforemounted:' + value.value)
+})
+
+onUnmounted(() => {
+  console.log('mounted:' + value.value)
+})
+</script>
 <template>
   <div>
     <nv-button icon="code" circle> </nv-button>
