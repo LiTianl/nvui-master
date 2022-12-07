@@ -190,24 +190,24 @@
   </div>
 </template>
 <script>
-export default {
-  data() {
-    return {
-      message: 'Welcome to Vue!'
-    };
-  },
-  beforeUpdate(){
-    console.log(this.$el);
-  },
-  updated(){
-    console.log(this.$el);
-  },
-  methods: {
-    doSomething() {
-      this.message='hello word';
+  export default {
+    data() {
+      return {
+        message: 'Welcome to Vue!'
+      };
+    },
+    beforeUpdate(){
+      console.log(this.$el);
+    },
+    updated(){
+      console.log(this.$el);
+    },
+    methods: {
+      doSomething() {
+        this.message='hello word';
+      }
     }
-  }
-};
+  };
 </script>
 ```
 >Composition API
@@ -245,37 +245,37 @@ export default {
 
 > Options API
 ``` vue
-  <script>
-    export default {
-      data(){
-        return{
-          value:'default',
-        }
-      },
-      beforeDestroy(){
-        // ...
-      },
-      destroyed(){
-        // ...
+<script>
+  export default {
+    data(){
+      return{
+        value:'default',
       }
+    },
+    beforeDestroy(){
+      // ...
+    },
+    destroyed(){
+      // ...
     }
-  </script>
+  }
+</script>
 ```
 > Composition API
 ``` vue 
-  <script setup>
-    import {onBeforeUnmount,onUnmounted} from 'vue'
-    let intervalId
-    onMounted(() => {
-      intervalId = setInterval(() => {
-        // ...
-      })
-    })
-    onBeforeUnmount(()=>{
+<script setup>
+  import {onBeforeUnmount,onUnmounted} from 'vue'
+  let intervalId
+  onMounted(() => {
+    intervalId = setInterval(() => {
       // ...
     })
-    onUnmounted(() => clearInterval(intervalId))
-  </script>
+  })
+  onBeforeUnmount(()=>{
+    // ...
+  })
+  onUnmounted(() => clearInterval(intervalId))
+</script>
 ```
 ## errorCaptured() (2.5.0+)
 `errorCaptured` 在捕获了后代组件传递的错误时调用。这个钩子带有三个实参：错误对象、触发该错误的组件实例，以及一个说明错误来源类型的信息字符串。
