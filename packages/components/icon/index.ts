@@ -1,10 +1,8 @@
-import Icon from './src/icon.vue'
-import type { App } from 'vue'
+import icon from './src/icon.vue'
+import { withInstall } from '@nv/utils'
 import './icons/iconfont.js'
-Icon.install = function (app: App) {
-  app.component(Icon.name, Icon)
-}
 
-export default Icon
+export const NvIcon = withInstall(icon)
+export default NvIcon
 
 export * from './src/icon'

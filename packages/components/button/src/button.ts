@@ -1,5 +1,4 @@
 import type { ExtractPropTypes, PropType } from 'vue'
-
 export type buttonTypes =
   | 'default'
   | 'primary'

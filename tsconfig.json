@@ -7,8 +7,9 @@
     "moduleResolution": "node",
     "paths": {
       "@/*": ["./src/*"],
-      "pk/*": ["./packages/*"]
-    }
+      "@nv/*": ["./packages/*"]
+    },
+    "lib": ["ES2017"]
   },
 
   "references": [

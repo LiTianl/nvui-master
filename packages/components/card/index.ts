@@ -1,11 +1,8 @@
-import type { App } from 'vue'
 import card from './src/card.vue'
+import { withInstall } from '@nv/utils'
 
-// 声明为插件，可以引入组件
-card.install = function (app: App): void {
-  app.component(card.name, card)
-}
+export const NvCard = withInstall(card)
 
-export default card
+export default NvCard
 
 export * from './src/card'

@@ -96,7 +96,7 @@
   `vue` 通过原型拦截的方式重写了数组的七个方法。`push`、`pop`、`shift`、`unshift`、`splice`、`sort`、`reverse`,以达到变更通知给其订阅者实现数据响应。
   :::
   ``` js 
-  //向数组最后添加对象,一下两者效果一样
+  //向数组最后添加对象,以下两者效果一样
   //this.$set(要更改的数组，数组下标，要更改的值)
   this.$set(this.items,this.items.length,{id:3,name:'xiaoli'}) 
   //splice(更改数组的起始下标，更改的数量，更改的值)

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { cardProps } from './card'
-import { useNamespace } from '../../../hooks/use-namespace'
+import { useNamespace } from '@nv/hooks'
 
 const ns = useNamespace('card')
 defineProps(cardProps)
